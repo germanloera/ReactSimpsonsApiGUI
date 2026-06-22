@@ -17,12 +17,14 @@ export default function CardEpisode() {
 
             <View style={episodeCardStyle.textContainer}>
 
+                <View style={episodeCardStyle.title}>
+                    <Text style={episodeCardStyle.text}>
+                        <Text style={{ fontSize: 20, fontWeight: 800 }}>Homero Simpson</Text>
+                    </Text>
+                    <SeasonPill />
 
+                </View>
 
-                <Text style={episodeCardStyle.text}>
-                    <Text style={{ fontSize: 20, fontWeight: 800 }}>Homero Simpson</Text>
-                </Text>
-                <SeasonPill />
                 <Text style={[episodeCardStyle.text, { fontSize: 15, fontStyle: 'italic' }]}>
                     Security Inspector
                 </Text>
@@ -71,8 +73,16 @@ const episodeCardStyle = StyleSheet.create({
         marginHorizontal: 10,
         alignContent: 'center',
         fontWeight: 500,
-    }
+    },
 
+    title: {
+
+        flexDirection: 'row',
+        alignSelf: 'stretch',
+        justifyContent: 'space-between',
+        paddingEnd: 10,
+        alignItems: 'center'
+    }
 
 
 });
