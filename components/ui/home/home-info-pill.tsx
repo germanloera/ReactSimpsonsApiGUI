@@ -7,13 +7,15 @@ export default function HomeInfoPill() {
     const theme = useColorScheme() ?? 'light';
     return (
         <View style={homeInfoPillStyle.container}>
+            <View>
             <Text style={homeInfoPillStyle.text}>
                 🍩 Explora el universo de Springfield.
             </Text>
 
             <Text style={homeInfoPillStyle.text}>
                 Explora personajes, episodios y lugares desde la API oficial de The Simpsons.
-            </Text>
+                </Text>
+            </View>
         </View>
     )
 

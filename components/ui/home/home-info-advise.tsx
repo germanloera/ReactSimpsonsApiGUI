@@ -7,13 +7,15 @@ export default function HomeInfoAdvice() {
     const theme = useColorScheme() ?? 'light';
     return (
         <View style={homeAdviceStyle.container}>
+            <View>
             <Text style={homeAdviceStyle.text}>
                 <Text style={{ fontWeight: 800 } }>✨ Consejo:</Text> Toca cualquier tarjeta para ver más detalles (consola o alerta informativa).
             </Text>
 
             <Text style={[homeAdviceStyle.text, {fontSize: 10}]}>
                 🔍 Usa la lupa para filtrar en cada lista
-            </Text>
+                </Text>
+            </View>
         </View>
     )
 
@@ -28,7 +30,10 @@ const homeAdviceStyle = StyleSheet.create({
         borderRadius: 50,
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: 10
+        paddingVertical: 10,
+        margin: 10,
+      
+        flexDirection: 'row'
         
     },
 
