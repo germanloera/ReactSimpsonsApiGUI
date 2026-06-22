@@ -64,7 +64,7 @@ const homeAdviceStyle = StyleSheet.create({
         backgroundColor: "#516fdc",
         width: 80, 
         height: 80, 
-        borderRadius: 40
+        borderRadius: 45
     },
 
     textContainer: {
