@@ -3,16 +3,16 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 
-export default function HomeInfoPill() {
+export default function HomeInfoAdvice() {
     const theme = useColorScheme() ?? 'light';
     return (
-        <View style={homeInfoPillStyle.container}>
-            <Text style={homeInfoPillStyle.text}>
-                🍩 Explora el universo de Springfield.
+        <View style={homeAdviceStyle.container}>
+            <Text style={homeAdviceStyle.text}>
+                <Text style={{ fontWeight: 800 } }>✨ Consejo:</Text> Toca cualquier tarjeta para ver más detalles (consola o alerta informativa).
             </Text>
 
-            <Text style={homeInfoPillStyle.text}>
-                Explora personajes, episodios y lugares desde la API oficial de The Simpsons.
+            <Text style={[homeAdviceStyle.text, {fontSize: 10}]}>
+                🔍 Usa la lupa para filtrar en cada lista
             </Text>
         </View>
     )
@@ -20,21 +20,21 @@ export default function HomeInfoPill() {
 
 }
 
-const homeInfoPillStyle = StyleSheet.create({
+const homeAdviceStyle = StyleSheet.create({
     container: {
-        backgroundColor: '#fbebb6',
+        backgroundColor: '#f9dea2',
         height: 100,
         alignSelf: 'stretch',
         borderRadius: 50,
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingVertical: 20
+        paddingVertical: 10
         
     },
 
     text: {
         textAlign: 'center',
-        marginHorizontal: 20,
+        marginHorizontal: 10,
         alignContent: 'center',
         fontWeight: 500
 

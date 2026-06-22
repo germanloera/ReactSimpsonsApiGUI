@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import HomeInfoPill from '@/components/ui/home/home-info-pill';
+import HomeInfoAdvice from '@/components/ui/home/home-info-advise';
+import HomeInfoSmallPills from '@/components/ui/home/home-info-small';
 
 export default function HomeScreen() {
   return (
@@ -14,10 +16,11 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
-      <HomeInfoPill />
-
-
       
+      <HomeInfoPill />
+      <HomeInfoSmallPills />
+      <HomeInfoAdvice />
+
     </ParallaxScrollView>
   );
 }
