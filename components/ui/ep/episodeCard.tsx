@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import SeasonPill from "./seasonPill";
 
 
 export default function CardEpisode() {
@@ -21,7 +22,7 @@ export default function CardEpisode() {
                 <Text style={episodeCardStyle.text}>
                     <Text style={{ fontSize: 20, fontWeight: 800 }}>Homero Simpson</Text>
                 </Text>
-
+                <SeasonPill />
                 <Text style={[episodeCardStyle.text, { fontSize: 15, fontStyle: 'italic' }]}>
                     Security Inspector
                 </Text>
@@ -61,6 +62,7 @@ const episodeCardStyle = StyleSheet.create({
 
     textContainer: {
         marginVertical: 10,
+
     },
 
 
