@@ -3,19 +3,19 @@ import CharacterCard from '@/components/ui/characters/characterCard';
 import SearchBox from '@/components/ui/common/searchBox';
 import { CharactersVM, useCharactersVM } from '@/src/viewmodels/CharactersVM';
 import { use, useEffect } from 'react';
-import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, FlatList, StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export default function CharactersScreen() {
   const { characters, page, isLoading, loadCharacters } = useCharactersVM()
   const insets = useSafeAreaInsets();
-
+/*
   useEffect(() => { 
 
     loadCharacters();
 
-  }, []);
+  }, []); */
 
 
   return (
@@ -34,6 +34,16 @@ export default function CharactersScreen() {
             // Combines system spacing requirements with standard padding
             paddingBottom: insets.bottom + 80
           }}
+
+        
+          onEndReached={() => loadCharacters()}
+          onEndReachedThreshold={0.2}
+
+          // Muestra un spinner al final mientras carga
+          ListFooterComponent={
+            isLoading ? <ActivityIndicator size="small" /> : null
+          }
+        
         />
 
 

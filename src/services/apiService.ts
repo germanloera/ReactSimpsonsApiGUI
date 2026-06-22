@@ -5,8 +5,10 @@ import api from "./api";
 
 export const apiService = { 
 
-    getCharacters: async (next?: String): Promise<CharactersResponse> => {
-        const response = await api.get('characters');
+    getCharacters: async (next: string | null ): Promise<CharactersResponse> => {
+        const url =  next == null ? 'characters' : next
+        console.log(`*-*-*- ${next} ${url}` )
+        const response = await api.get(url);
         return response.data
     },
 
