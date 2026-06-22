@@ -1,8 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { CharacterDetail } from "@/src/models/characters";
 
 
-export default function CharacterCard() {
+
+interface CharacterProps { 
+    character: CharacterDetail
+
+}
+
+
+export default function CharacterCard({ character } : CharacterProps) {
 
     return (
         <View style={homeAdviceStyle.container}>
@@ -19,11 +27,11 @@ export default function CharacterCard() {
 
 
                 <Text style={homeAdviceStyle.text}>
-                    <Text style={{ fontWeight: 800 }}>Homero Simpson</Text> 
+                    <Text style={{ fontWeight: 800 }}>{ character.name }</Text> 
                 </Text>
 
                 <Text style={[homeAdviceStyle.text, { fontSize: 10, fontStyle: 'italic'}]}>
-                    Security Inspector
+                    { character.occupation }
                 </Text>
 
             </View>

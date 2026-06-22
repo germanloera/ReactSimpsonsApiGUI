@@ -1,10 +1,22 @@
+
 import CharacterCard from '@/components/ui/characters/characterCard';
 import SearchBox from '@/components/ui/common/searchBox';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { CharactersVM, useCharactersVM } from '@/src/viewmodels/CharactersVM';
+import { useEffect } from 'react';
+import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-export default function TabTwoScreen() {
+export default function CharactersScreen() {
+  const { characters, page, isLoading, loadCharacters } = useCharactersVM()
+
+  useEffect(() => { 
+
+    loadCharacters();
+
+  }, []);
+
+
   return (
     <SafeAreaView>
       <View>
@@ -12,7 +24,15 @@ export default function TabTwoScreen() {
 
         <SearchBox />
 
-        <CharacterCard />
+
+        <FlatList
+          data={characters}
+          renderItem={({ item }) => <CharacterCard character={item} />}
+          keyExtractor={item => item.id}
+
+        />
+
+
 
 
       </View>
