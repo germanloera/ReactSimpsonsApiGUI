@@ -5,6 +5,7 @@ import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Fontisto } from '@expo/vector-icons'
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -24,10 +25,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="characters"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Characters',
+          tabBarIcon: ({ color }) => <Fontisto size={26} name="persons" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="episodes"
+        options={{
+          title: 'Episodes',
+          tabBarIcon: ({ color }) => <Fontisto size={28} name="tv" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="locations"
+        options={{
+          title: 'Locations',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="location.fill" color={color} />,
         }}
       />
     </Tabs>
