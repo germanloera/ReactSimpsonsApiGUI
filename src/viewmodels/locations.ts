@@ -1,6 +1,7 @@
 // src/models/Location.ts
 
-const IMAGE_BASE = 'https://tu-imagen-base-url.com/';
+import { IMAGE_BASE } from "../constants/urls";
+
 
 export interface LocationsApiResponse {
     count: number;

@@ -1,3 +1,3 @@
-export const baseUrl = 'https://thesimpsonsapi.com/api'
+export const BASE_URL = 'https://thesimpsonsapi.com/api'
 
-export const image_500 = 'https://cdn.thesimpsonsapi.com/500'
+export const  IMAGE_BASE = 'https://cdn.thesimpsonsapi.com/500'

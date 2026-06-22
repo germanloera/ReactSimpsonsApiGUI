@@ -1,6 +1,6 @@
 // src/models/Episode.ts
 
-const IMAGE_BASE = 'https://tu-imagen-base-url.com/';
+import { IMAGE_BASE } from "../constants/urls";
 
 export interface EpisodesApiResponse {
     count: number;
