@@ -1,6 +1,9 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { CharacterDetail } from "@/src/models/characters";
+import { Image } from "expo-image";
+import { IMAGE_BASE } from "@/src/constants/urls";
+import { limitText } from "@/src/utils/StringFunctions";
 
 
 
@@ -9,14 +12,19 @@ interface CharacterProps {
 
 }
 
-
 export default function CharacterCard({ character } : CharacterProps) {
 
     return (
         <View style={homeAdviceStyle.container}>
             <View style={homeAdviceStyle.imageContainer}>
                 
-                <View style={homeAdviceStyle.image }></View>
+                <Image
+                    source={{ uri : IMAGE_BASE + character.portrait_path}}
+                    style={homeAdviceStyle.image}
+                    contentFit="cover"
+                />
+
+            
 
             </View>
 
@@ -27,11 +35,11 @@ export default function CharacterCard({ character } : CharacterProps) {
 
 
                 <Text style={homeAdviceStyle.text}>
-                    <Text style={{ fontWeight: 800 }}>{ character.name }</Text> 
+                    <Text style={{ fontWeight: 800, fontSize: 20 }}>{ limitText(character.name, 20)  } </Text> 
                 </Text>
 
-                <Text style={[homeAdviceStyle.text, { fontSize: 10, fontStyle: 'italic'}]}>
-                    { character.occupation }
+                <Text  ellipsizeMode="tail"  style={[homeAdviceStyle.text, { fontSize: 15, fontStyle: 'italic'}]}>
+                    { limitText(character.occupation, 35)  }
                 </Text>
 
             </View>
@@ -69,7 +77,7 @@ const homeAdviceStyle = StyleSheet.create({
     },
 
     image: {
-        backgroundColor: "#516fdc",
+        backgroundColor: "#5a8dc6",
         width: 80, 
         height: 80, 
         borderRadius: 45
@@ -85,6 +93,7 @@ const homeAdviceStyle = StyleSheet.create({
         marginHorizontal: 10,
         alignContent: 'center',
         fontWeight: 500
+    
     }
 
 

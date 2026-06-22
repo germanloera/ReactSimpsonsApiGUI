@@ -2,13 +2,14 @@
 import CharacterCard from '@/components/ui/characters/characterCard';
 import SearchBox from '@/components/ui/common/searchBox';
 import { CharactersVM, useCharactersVM } from '@/src/viewmodels/CharactersVM';
-import { useEffect } from 'react';
+import { use, useEffect } from 'react';
 import { FlatList, StatusBar, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export default function CharactersScreen() {
   const { characters, page, isLoading, loadCharacters } = useCharactersVM()
+  const insets = useSafeAreaInsets();
 
   useEffect(() => { 
 
@@ -29,7 +30,10 @@ export default function CharactersScreen() {
           data={characters}
           renderItem={({ item }) => <CharacterCard character={item} />}
           keyExtractor={item => item.id}
-
+          contentContainerStyle={{
+            // Combines system spacing requirements with standard padding
+            paddingBottom: insets.bottom + 80
+          }}
         />
 
 
