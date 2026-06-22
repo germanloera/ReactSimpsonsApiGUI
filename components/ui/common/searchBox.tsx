@@ -1,33 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,TextInput, TouchableOpacity } from "react-native";
+
 
 
 export default function SearchBox() {
 
     return (
         <View style={searchStyle.container}>
-            <View style={searchStyle.imageContainer}>
-                
-                <View style={searchStyle.image }></View>
+            <TextInput style={searchStyle.input} placeholder="Buscar personajes" />
 
-            </View>
+            <TouchableOpacity style={searchStyle.touchable} >
+                <Text>🔍 Buscar</Text>
 
-
-
-            <View style={searchStyle.textContainer }>
-
-
-
-                <Text style={searchStyle.text}>
-                    <Text style={{ fontWeight: 800 }}>Homero Simpson</Text> 
-                </Text>
-
-                <Text style={[searchStyle.text, { fontSize: 10, fontStyle: 'italic'}]}>
-                    Security Inspector
-                </Text>
-
-            </View>
-
+            </TouchableOpacity>
 
         </View>
     )
@@ -38,47 +23,36 @@ export default function SearchBox() {
 const searchStyle = StyleSheet.create({
     container: {
         
-        backgroundColor: '#FFF',
-        height: 100,
+        backgroundColor: '#fff',
+        height: 50,
         alignSelf: 'stretch',
         borderRadius: 30,
         justifyContent: 'flex-start',
         alignItems: 'center',
         margin: 10,
-        borderColor: '#f9e7bb',
-        borderWidth: 3,
+        borderColor: '#f9daa1',
+        borderWidth: 1,
         flexDirection: 'row'
 
     },
 
 
-    imageContainer: {
+    input: {
+        flex: 1,
+        
+        marginLeft: 20, 
+
+    },
+
+    touchable: {
         width: 100,
-
-        justifyContent: 'center',
+        height: 40,
+        marginEnd: 10,
+        borderRadius:20,
+        backgroundColor: '#f4b65c',
         alignItems: 'center',
-    
-    },
-
-    image: {
-        backgroundColor: "#516fdc",
-        width: 80, 
-        height: 80, 
-        borderRadius: 45
-    },
-
-    textContainer: {
-       
-    },
-
-
-    text: {
-        textAlign: 'auto',
-        marginHorizontal: 10,
-        alignContent: 'center',
-        fontWeight: 500
+        justifyContent: 'center'
     }
-
 
 
 });

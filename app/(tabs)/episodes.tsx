@@ -1,5 +1,6 @@
 
 
+import SearchBox from '@/components/ui/common/searchBox';
 import CardEpisode from '@/components/ui/ep/episodeCard';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,6 +11,7 @@ export default function EpisodesScreen() {
     <SafeAreaView>
       <View>
 
+        <SearchBox />
         <CardEpisode />
       </View>
     </SafeAreaView>

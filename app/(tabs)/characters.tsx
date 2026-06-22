@@ -1,4 +1,5 @@
 import CharacterCard from '@/components/ui/characters/characterCard';
+import SearchBox from '@/components/ui/common/searchBox';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -9,6 +10,7 @@ export default function TabTwoScreen() {
       <View>
         <StatusBar barStyle='default' />
 
+        <SearchBox />
 
         <CharacterCard />
 
