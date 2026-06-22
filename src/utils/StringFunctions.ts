@@ -1,4 +1,4 @@
-export function limitText(text: String, maxChars: number): String {
+export function limitText(text: String, maxChars: number): string {
     if (text == undefined)
         return ""
     else {

@@ -1,38 +1,51 @@
+import { IMAGE_BASE } from "@/src/constants/urls";
+import { Episode } from "@/src/models/episode";
+import { Location } from "@/src/models/locations";
+import { limitText } from "@/src/utils/StringFunctions";
+import { ImageBackground } from "expo-image";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SeasonPill from "./seasonPill";
-import { Episode } from "@/src/models/episode";
-import { ImageBackground } from "expo-image";
-import { IMAGE_BASE } from "@/src/constants/urls";
-import { limitText } from "@/src/utils/StringFunctions";
 
 
-interface EpisodeProp { 
-    ep: Episode
+interface EpisodeProp {
+    ep?: Episode
+    loc?: Location
 }
 
-export default function CardEpisode({ ep }: EpisodeProp) {
+
+
+
+export default function CardEpisode({ ep, loc }: EpisodeProp) {
+
+    const image = ep?.image_path ?? loc?.image_path ?? ''
+    const name = ep?.name ?? loc?.name ?? ''
+    const summary = ep?.synopsis ?? loc?.use ?? ''
+    const town = loc?.town ?? `C${ep?.episode_number} S${ep?.season}`
+
 
     return (
         <View style={episodeCardStyle.container}>
             <ImageBackground
-                 source={{ uri : IMAGE_BASE + ep.image_path}}
-             style={episodeCardStyle.imageContainer}
-                 contentFit="cover"
-             />
+                source={{ uri: IMAGE_BASE + image }}
+                style={episodeCardStyle.imageContainer}
+                contentFit="cover"
+            />
 
             <View style={episodeCardStyle.textContainer}>
 
                 <View style={episodeCardStyle.title}>
                     <Text style={episodeCardStyle.text}>
-                        <Text style={{ fontSize: 20, fontWeight: 800 }}>{ limitText(ep.name, 20) }</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 800 }}>{limitText(name, 25)}</Text>
                     </Text>
-                    <SeasonPill c={`${ep.episode_number}`} s={`${ep.season}`} />
+                   
 
                 </View>
 
+                <SeasonPill text={limitText(town, 15)} />
+
                 <Text style={[episodeCardStyle.text, { fontSize: 15, fontStyle: 'italic' }]}>
-                    {limitText(ep.synopsis, 50)}
+                    {limitText(summary, 50)}
                 </Text>
 
             </View>
@@ -46,7 +59,7 @@ export default function CardEpisode({ ep }: EpisodeProp) {
 
 const episodeCardStyle = StyleSheet.create({
     container: {
-        height: 280,
+        height: 300,
         backgroundColor: '#FFF',
         alignSelf: 'stretch',
         borderRadius: 10,

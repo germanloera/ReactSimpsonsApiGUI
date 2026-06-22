@@ -17,8 +17,8 @@ export const apiService = {
     },
 
     getLocations: async (next: string | null): Promise<LocationsApiResponse> => {
-        const url = next == null ? 'characters' : next
-        const response = await api.get('characters');
+        const url = next == null ? 'locations' : next
+        const response = await api.get(url);
         return response.data
     },
 

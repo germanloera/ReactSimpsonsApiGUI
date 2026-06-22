@@ -3,20 +3,18 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 
-interface SeasonPillProps { 
-    c: String,
-    s: String, 
-    location?: String
+interface SeasonPillProps {
+    text: string
 }
 
-export default function SeasonPill({ c, s, location} : SeasonPillProps) {
+export default function SeasonPill({ text }: SeasonPillProps) {
     const theme = useColorScheme() ?? 'light';
     return (
         <View style={seasonPillStyle.container}>
 
-            
+
             <View style={[seasonPillStyle.pill]}>
-                <Text style={seasonPillStyle.text}>{location ?? `S${s} C${c}`}</Text>
+                <Text style={seasonPillStyle.text}>{text}</Text>
             </View>
 
 
@@ -32,7 +30,7 @@ const seasonPillStyle = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         flexDirection: 'column'
-        
+
     },
 
     pill: {
@@ -42,12 +40,12 @@ const seasonPillStyle = StyleSheet.create({
         paddingHorizontal: 10,
         justifyContent: 'center',
         alignItems: 'center'
-        
+
     },
 
     text: {
         color: '#000', fontWeight: 700, fontStyle: 'italic', fontSize: 12
-    
+
     }
 
 
