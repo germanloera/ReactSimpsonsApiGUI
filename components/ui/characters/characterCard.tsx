@@ -39,7 +39,7 @@ export default function CharacterCard({ character } : CharacterProps) {
                 </Text>
 
                 <Text  ellipsizeMode="tail"  style={[homeAdviceStyle.text, { fontSize: 15, fontStyle: 'italic'}]}>
-                    { limitText(character.occupation, 35)  }
+                    { limitText(character.occupation, 30)  }
                 </Text>
 
             </View>
