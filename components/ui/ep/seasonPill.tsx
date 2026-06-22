@@ -3,14 +3,20 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 
-export default function SeasonPill() {
+interface SeasonPillProps { 
+    c: String,
+    s: String, 
+    location?: String
+}
+
+export default function SeasonPill({ c, s, location} : SeasonPillProps) {
     const theme = useColorScheme() ?? 'light';
     return (
         <View style={seasonPillStyle.container}>
 
             
             <View style={[seasonPillStyle.pill]}>
-                <Text style={seasonPillStyle.text }>S1, C1</Text>
+                <Text style={seasonPillStyle.text}>{location ?? `S${s} C${c}`}</Text>
             </View>
 
 

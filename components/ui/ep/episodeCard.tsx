@@ -1,32 +1,38 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import SeasonPill from "./seasonPill";
+import { Episode } from "@/src/models/episode";
+import { ImageBackground } from "expo-image";
+import { IMAGE_BASE } from "@/src/constants/urls";
+import { limitText } from "@/src/utils/StringFunctions";
 
 
-export default function CardEpisode() {
+interface EpisodeProp { 
+    ep: Episode
+}
+
+export default function CardEpisode({ ep }: EpisodeProp) {
 
     return (
         <View style={episodeCardStyle.container}>
-            <View style={episodeCardStyle.imageContainer}>
-
-
-
-            </View>
-
-
+            <ImageBackground
+                 source={{ uri : IMAGE_BASE + ep.image_path}}
+             style={episodeCardStyle.imageContainer}
+                 contentFit="cover"
+             />
 
             <View style={episodeCardStyle.textContainer}>
 
                 <View style={episodeCardStyle.title}>
                     <Text style={episodeCardStyle.text}>
-                        <Text style={{ fontSize: 20, fontWeight: 800 }}>Homero Simpson</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 800 }}>{ limitText(ep.name, 20) }</Text>
                     </Text>
-                    <SeasonPill />
+                    <SeasonPill c={`${ep.episode_number}`} s={`${ep.season}`} />
 
                 </View>
 
                 <Text style={[episodeCardStyle.text, { fontSize: 15, fontStyle: 'italic' }]}>
-                    Security Inspector
+                    {limitText(ep.synopsis, 50)}
                 </Text>
 
             </View>

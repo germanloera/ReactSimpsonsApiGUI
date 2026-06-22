@@ -1,7 +1,7 @@
 
 import CharacterCard from '@/components/ui/characters/characterCard';
 import SearchBox from '@/components/ui/common/searchBox';
-import { CharactersVM, useCharactersVM } from '@/src/viewmodels/CharactersVM';
+import {  useCharactersVM } from '@/src/viewmodels/CharactersVM';
 import { use, useEffect } from 'react';
 import { ActivityIndicator, FlatList, StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';

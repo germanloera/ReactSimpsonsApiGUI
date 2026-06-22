@@ -16,18 +16,21 @@ export const apiService = {
         return response.data
     },
 
-    getLocations: async (next?: String): Promise<LocationsApiResponse> => {
+    getLocations: async (next: string | null): Promise<LocationsApiResponse> => {
+        const url = next == null ? 'characters' : next
         const response = await api.get('characters');
         return response.data
     },
 
     getLocationDetail: async (id: String): Promise<LocationDetail> => {
+        
         const response = await api.get('characters/${id}');
         return response.data
     },
 
-    getEpisodes: async (next?: String): Promise<EpisodesApiResponse> => {
-        const response = await api.get('characters');
+    getEpisodes: async (next: string | null): Promise<EpisodesApiResponse> => {
+        const url = next == null ? 'episodes' : next
+        const response = await api.get(url);
         return response.data
     },
 
