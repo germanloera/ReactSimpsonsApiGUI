@@ -7,7 +7,6 @@ export const apiService = {
 
     getCharacters: async (next: string | null ): Promise<CharactersResponse> => {
         const url =  next == null ? 'characters' : next
-        console.log(`*-*-*- ${next} ${url}` )
         const response = await api.get(url);
         return response.data
     },
