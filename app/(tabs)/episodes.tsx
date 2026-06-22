@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 
-export default function TabThreeScreen() {
+export default function EpisodesScreen() {
   return (
     <SafeAreaView>
       <View>
