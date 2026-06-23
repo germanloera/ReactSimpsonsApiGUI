@@ -1,16 +1,24 @@
 # React Simpsons API GUI
 
-A sample project built with **React Native + Expo** that provides a custom UI for **The Simpsons API**.
+[![Expo](https://img.shields.io/badge/Expo-54-000020?logo=expo&logoColor=white)](https://expo.dev/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=000000)](https://react.dev/)
+[![React Native](https://img.shields.io/badge/React%20Native-0.81-20232A?logo=react&logoColor=61DAFB)](https://reactnative.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](#license)
 
-It includes dedicated screens for:
+A portfolio-ready sample app built with **React Native + Expo** that delivers a custom UI for **The Simpsons API**.
 
-- Characters
-- Episodes
-- Locations
+## Highlights
 
-## Screenshots
+- Custom tab-based navigation and themed UI
+- Infinite scrolling lists for characters, episodes, and locations
+- Typed API layer with Axios + TypeScript interfaces
+- Lightweight MVVM-style organization
+- Runs on Android, iOS, and Web
 
-Add your screenshots here later.
+## Demo Screens
+
+Add your screenshots when ready.
 
 ### Home
 
@@ -28,97 +36,100 @@ Add your screenshots here later.
 
 ![Locations Screenshot](./screenshots/locations.png)
 
-## Overview
+## Architecture
 
-The app uses a lightweight MVVM-style structure:
+The project is structured in a clear UI → ViewModel → Service flow.
 
-- **UI layer** in `app/(tabs)` and `components/ui`
-- **ViewModels** in `src/viewmodels` for state and pagination logic
-- **API services** in `src/services` using Axios
-- **TypeScript models** in `src/models`
+- **UI Layer**: `app/(tabs)` and `components/ui`
+- **State/ViewModels**: `src/viewmodels`
+- **Data Services**: `src/services`
+- **Typed Models**: `src/models`
 
-Main API base URL:
+### Data Flow
 
-- `https://thesimpsonsapi.com/api`
+1. A screen (Characters / Episodes / Locations) calls its ViewModel.
+2. The ViewModel requests paginated data via `apiService`.
+3. Incoming results are merged into local state with duplicate prevention by `id`.
+4. The UI renders `FlatList` with infinite scroll using `onEndReached`.
 
-## How it works
+## Key Files
 
-1. Each tab screen (Characters, Episodes, Locations) uses its own ViewModel.
-2. The ViewModel fetches paginated data through `apiService`.
-3. New items are merged into local state while avoiding duplicate IDs.
-4. Lists are rendered with `FlatList` and support infinite scroll via `onEndReached`.
+- `app/_layout.tsx` — root layout and stack
+- `app/(tabs)/_layout.tsx` — tab navigation configuration
+- `app/(tabs)/characters.tsx` — characters screen
+- `app/(tabs)/episodes.tsx` — episodes screen
+- `app/(tabs)/locations.tsx` — locations screen
+- `src/services/api.ts` — Axios instance (`baseURL`, timeout, headers)
+- `src/services/apiService.ts` — API methods for main resources
 
-## Project structure
-
-- `app/_layout.tsx`: root layout and stack setup
-- `app/(tabs)/_layout.tsx`: tabs navigation
-- `app/(tabs)/characters.tsx`: characters list screen
-- `app/(tabs)/episodes.tsx`: episodes list screen
-- `app/(tabs)/locations.tsx`: locations list screen
-- `src/services/api.ts`: Axios client (`baseURL`, timeout, headers)
-- `src/services/apiService.ts`: API methods for characters, episodes, and locations
-
-## Tech stack and libraries
+## Tech Stack
 
 ### Core
 
-- **expo** (~54)
-- **react** (19)
-- **react-native** (0.81)
-- **typescript** (~5.9)
+- Expo 54
+- React 19
+- React Native 0.81
+- TypeScript 5.9
 
 ### Navigation and UI
 
-- **expo-router**
-- **@react-navigation/native**
-- **@react-navigation/bottom-tabs**
-- **@expo/vector-icons**
-- **react-native-safe-area-context**
-- **expo-image**
-- **expo-haptics**
+- expo-router
+- @react-navigation/native
+- @react-navigation/bottom-tabs
+- @expo/vector-icons
+- react-native-safe-area-context
+- expo-image
+- expo-haptics
 
-### Data
+### Networking and Tooling
 
-- **axios** for HTTP requests
+- axios
+- eslint + eslint-config-expo
 
-### Code quality
-
-- **eslint** + **eslint-config-expo**
-
-## Installation
+## Getting Started
 
 ```bash
 npm install
 ```
 
-## Available scripts
+### Run locally
 
 ```bash
 npm run start
+```
+
+### Platform commands
+
+```bash
 npm run android
 npm run ios
 npm run web
+```
+
+### Lint
+
+```bash
 npm run lint
 ```
 
-## Run the project
-
-```bash
-npm run start
-```
-
-Then choose where to run it:
-
-- Android
-- iOS
-- Web
-
-## Notes
-
-- `SearchBox` is currently implemented as a UI component and can be extended with real filtering logic.
-- Routing is file-based using `expo-router`.
-- TypeScript strict mode is enabled (`strict: true`).
-
 ## API
 
+This project uses:
+
 - [The Simpsons API](https://thesimpsonsapi.com/)
+- Base URL: `https://thesimpsonsapi.com/api`
+
+## Roadmap
+
+- Add real search/filter behavior to `SearchBox`
+- Add resource detail screens (character, episode, location)
+- Improve loading/error/empty states
+- Add tests for ViewModels and service layer
+
+## Author
+
+Your Name Here
+
+## License
+
+MIT
