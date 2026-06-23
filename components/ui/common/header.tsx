@@ -30,17 +30,25 @@ export default function SimpsonHeader() {
 
 const header = StyleSheet.create({
     container: {
+        
         height: 150,
         alignSelf: 'stretch',
+        alignContent: 'center',
+          justifyContent: 'center',
+
         
     },
 
     titleContainer: {
+        
         flexDirection: 'row',
-        justifyContent:'center'
+        justifyContent: 'center',
+
+
     },
 
     titleText: {
+       
         fontWeight: 700,
         fontSize: 25,
         alignContent: 'center'
@@ -59,7 +67,16 @@ const header = StyleSheet.create({
 
 
     },
-    bottomText: {}
+    bottomText: {
+        
+     
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignContent: 'center',
+        textAlign: 'center',
+     fontStyle:'italic'
+
+    }
 
 
 
