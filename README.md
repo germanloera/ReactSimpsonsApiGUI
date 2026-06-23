@@ -1,50 +1,124 @@
-# Welcome to your Expo app 👋
+# React Simpsons API GUI
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A sample project built with **React Native + Expo** that provides a custom UI for **The Simpsons API**.
 
-## Get started
+It includes dedicated screens for:
 
-1. Install dependencies
+- Characters
+- Episodes
+- Locations
 
-   ```bash
-   npm install
-   ```
+## Screenshots
 
-2. Start the app
+Add your screenshots here later.
 
-   ```bash
-   npx expo start
-   ```
+### Home
 
-In the output, you'll find options to open the app in a
+![Home Screenshot](./screenshots/home.png)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Characters
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+![Characters Screenshot](./screenshots/characters.png)
 
-## Get a fresh project
+### Episodes
 
-When you're ready, run:
+![Episodes Screenshot](./screenshots/episodes.png)
+
+### Locations
+
+![Locations Screenshot](./screenshots/locations.png)
+
+## Overview
+
+The app uses a lightweight MVVM-style structure:
+
+- **UI layer** in `app/(tabs)` and `components/ui`
+- **ViewModels** in `src/viewmodels` for state and pagination logic
+- **API services** in `src/services` using Axios
+- **TypeScript models** in `src/models`
+
+Main API base URL:
+
+- `https://thesimpsonsapi.com/api`
+
+## How it works
+
+1. Each tab screen (Characters, Episodes, Locations) uses its own ViewModel.
+2. The ViewModel fetches paginated data through `apiService`.
+3. New items are merged into local state while avoiding duplicate IDs.
+4. Lists are rendered with `FlatList` and support infinite scroll via `onEndReached`.
+
+## Project structure
+
+- `app/_layout.tsx`: root layout and stack setup
+- `app/(tabs)/_layout.tsx`: tabs navigation
+- `app/(tabs)/characters.tsx`: characters list screen
+- `app/(tabs)/episodes.tsx`: episodes list screen
+- `app/(tabs)/locations.tsx`: locations list screen
+- `src/services/api.ts`: Axios client (`baseURL`, timeout, headers)
+- `src/services/apiService.ts`: API methods for characters, episodes, and locations
+
+## Tech stack and libraries
+
+### Core
+
+- **expo** (~54)
+- **react** (19)
+- **react-native** (0.81)
+- **typescript** (~5.9)
+
+### Navigation and UI
+
+- **expo-router**
+- **@react-navigation/native**
+- **@react-navigation/bottom-tabs**
+- **@expo/vector-icons**
+- **react-native-safe-area-context**
+- **expo-image**
+- **expo-haptics**
+
+### Data
+
+- **axios** for HTTP requests
+
+### Code quality
+
+- **eslint** + **eslint-config-expo**
+
+## Installation
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Available scripts
 
-## Learn more
+```bash
+npm run start
+npm run android
+npm run ios
+npm run web
+npm run lint
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## Run the project
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm run start
+```
 
-## Join the community
+Then choose where to run it:
 
-Join our community of developers creating universal apps.
+- Android
+- iOS
+- Web
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Notes
+
+- `SearchBox` is currently implemented as a UI component and can be extended with real filtering logic.
+- Routing is file-based using `expo-router`.
+- TypeScript strict mode is enabled (`strict: true`).
+
+## API
+
+- [The Simpsons API](https://thesimpsonsapi.com/)
