@@ -18,7 +18,6 @@ A portfolio-ready sample app built with **React Native + Expo** that delivers a 
 
 ## Demo Screens
 
-Add your screenshots when ready.
 
 ### Home
 
@@ -128,7 +127,7 @@ This project uses:
 
 ## Author
 
-Your Name Here
+German Loera
 
 ## License
 
