@@ -21,10 +21,8 @@ export function useLocationsVM() {
         setIsLoading(true);
         try {
             const result = await apiService.getLocations(next);
-           
             const items = result.results
-
-            console.log(items)
+            
             locations.some (c => c.id )
         
             setLocations(prev => { 
