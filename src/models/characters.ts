@@ -23,7 +23,7 @@ export interface Character {
     status: string;
 }
 
-// Equivalente al método imageURL() de Kotlin
+// Equivalent to Kotlin's imageURL() method
 export const getCharacterImageURL = (character: Character): string => {
     return IMAGE_BASE + character.portrait_path;
 };

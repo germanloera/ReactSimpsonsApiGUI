@@ -23,7 +23,7 @@ export const getLocationImageURL = (location: Location): string => {
     return IMAGE_BASE + location.image_path;
 };
 
-// Equivalente a la propiedad "city" de Kotlin
+// Equivalent to Kotlin's "city" property
 export const getLocationCity = (location: Location): string => {
     return location.town.trim() === '' ? 'Unknown' : location.town;
 };

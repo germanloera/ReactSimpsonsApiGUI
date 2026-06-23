@@ -29,7 +29,7 @@ export default function LocationsScreen() {
             onEndReached={() => loadLocations()}
                 onEndReachedThreshold={0.2}
       
-                // Muestra un spinner al final mientras carga
+                // Shows a spinner at the bottom while loading
                 ListFooterComponent={
                   isLoading ? <ActivityIndicator size="small" /> : null
                 }

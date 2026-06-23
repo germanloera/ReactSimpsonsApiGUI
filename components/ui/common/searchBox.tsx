@@ -7,10 +7,10 @@ export default function SearchBox() {
 
     return (
         <View style={searchStyle.container}>
-            <TextInput style={searchStyle.input} placeholder="Buscar personajes" />
+            <TextInput style={searchStyle.input} placeholder="Search characters" />
 
             <TouchableOpacity style={searchStyle.touchable} >
-                <Text>🔍 Buscar</Text>
+                <Text>🔍 Search</Text>
 
             </TouchableOpacity>
 

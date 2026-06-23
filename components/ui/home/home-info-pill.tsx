@@ -9,11 +9,11 @@ export default function HomeInfoPill() {
         <View style={homeInfoPillStyle.container}>
             <View>
             <Text style={homeInfoPillStyle.text}>
-                🍩 Explora el universo de Springfield.
+                🍩 Explore the universe of Springfield.
             </Text>
 
             <Text style={homeInfoPillStyle.text}>
-                Explora personajes, episodios y lugares desde la API oficial de The Simpsons.
+                Explore characters, episodes, and places from the official The Simpsons API.
                 </Text>
             </View>
         </View>

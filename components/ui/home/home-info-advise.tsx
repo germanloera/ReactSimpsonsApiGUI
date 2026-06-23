@@ -9,11 +9,11 @@ export default function HomeInfoAdvice() {
         <View style={homeAdviceStyle.container}>
             <View>
             <Text style={homeAdviceStyle.text}>
-                <Text style={{ fontWeight: 800 } }>✨ Consejo:</Text> Toca cualquier tarjeta para ver más detalles (consola o alerta informativa).
+                <Text style={{ fontWeight: 800 } }>✨ Tip:</Text> Tap any card to view more details (console or informational alert).
             </Text>
 
             <Text style={[homeAdviceStyle.text, {fontSize: 10}]}>
-                🔍 Usa la lupa para filtrar en cada lista
+                🔍 Use the magnifier to filter in each list
                 </Text>
             </View>
         </View>

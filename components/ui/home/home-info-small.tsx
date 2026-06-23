@@ -6,23 +6,16 @@ import { StyleSheet, Text, View } from "react-native";
 export default function HomeInfoSmallPills() {
     const theme = useColorScheme() ?? 'light';
     return (
+        
         <View style={homeInfoSmallPills.container}>
-
-            
             <View style={[homeInfoSmallPills.bluePill, homeInfoSmallPills.pillContainer]}>
-                <Text style={{ color: '#fff', fontWeight: 600 } }>⭐ 700+ personajes</Text>
+                <Text style={{ color: '#fff', fontWeight: 600 } }>⭐ 700+ characters</Text>
             </View>
-
-
             <View style={[homeInfoSmallPills.orangePill, homeInfoSmallPills.pillContainer]}>
-
-                <Text style={{ fontWeight: 600 }}>📺 Temporadas clásicas</Text>
+                <Text style={{ fontWeight: 600 }}>📺 Classic seasons</Text>
             </View>
-
-
-
-
         </View>
+
     )
 
 
@@ -30,8 +23,8 @@ export default function HomeInfoSmallPills() {
 
 const homeInfoSmallPills = StyleSheet.create({
     container: {
-       
-        
+        paddingVertical: 10,
+       height: 100, 
         alignSelf: 'stretch',
      
         justifyContent: 'space-between',
