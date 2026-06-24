@@ -119,8 +119,9 @@ MIT
 
 ### Home
 
-<img src="./screenshots/home_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/home_android.png" alt="" style="width:30%; height:auto;">
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/home_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/home_android.png" alt="" style="width:30%; height:auto;"> |
 
 ### Characters
 

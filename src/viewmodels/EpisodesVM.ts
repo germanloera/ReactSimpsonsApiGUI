@@ -57,8 +57,7 @@ export function useEpisodesVM() {
 
             const result = await apiService.getEpisodeDetail(id);
             setEpisode(result)
-            console.log(result)
-
+            
         } catch (e) {
             console.log(e)
         } finally {
