@@ -125,28 +125,37 @@ MIT
 
 ### Characters
 
-<img src="./screenshots/character_ios.png" alt="" style="width:40%; height:auto;">
-<img src="./screenshots/character_android.png" alt="" style="width:40%; height:auto;">
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/character_ios.png" alt="" style="width:40%; height:auto;"> | <img src="./screenshots/character_android.png" alt="" style="width:40%; height:auto;"> |
 
 ### Characters detail
-<img src="./screenshots/char_detail_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/char_detail_android.png" alt="" style="width:30%; height:auto;">
+
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/char_detail_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/char_detail_android.png" alt="" style="width:30%; height:auto;"> |
 
 ### Episodes
-<img src="./screenshots/episodes_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/episodes_android.png" alt="" style="width:30%; height:auto;">
+
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/episodes_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/episodes_android.png" alt="" style="width:30%; height:auto;"> |
 
 ### Episodes Detail
-<img src="./screenshots/ep_detail_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/ep_detail_android.png" alt="" style="width:30%; height:auto;">
+
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/ep_detail_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/ep_detail_android.png" alt="" style="width:30%; height:auto;"> |
 
 
 ### Locations
 
-<img src="./screenshots/loc_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/locations_android.png" alt="Home iOS" style="width:30%; height:auto;">
+| iOS | Android | 
+| --- | --- | 
+| <img src="./screenshots/loc_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/locations_android.png" alt="Home iOS" style="width:30%; height:auto;"> |
 
 ### Locations Detail
 
-<img src="./screenshots/loc_det_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/loc_det_android.png" alt="" style="width:30%; height:auto;">
+| iOS | Android | 
+| --- | --- | 
+|  <img src="./screenshots/loc_det_ios.png" alt="" style="width:30%; height:auto;"> | <img src="./screenshots/loc_det_android.png" alt="" style="width:30%; height:auto;"> |
