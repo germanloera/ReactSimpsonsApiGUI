@@ -10,12 +10,6 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 export default function CharactersScreen() {
   const { characters, page, isLoading, loadCharacters } = useCharactersVM()
   const insets = useSafeAreaInsets();
-/*
-  useEffect(() => { 
-
-    loadCharacters();
-
-  }, []); */
 
 
   return (
