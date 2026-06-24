@@ -7,7 +7,8 @@ import {
     ScrollView,
     StyleSheet,
     Text,
-    View
+    View,
+    ActivityIndicator
 } from 'react-native';
 
 
@@ -18,7 +19,7 @@ type SearchParams = {
 
 const LocationDetail = () => {
 
-    const { loadLocationDetails, location } = useLocationsVM()
+    const { loadLocationDetails, location, isLoading } = useLocationsVM()
     const { id } = useLocalSearchParams<SearchParams>()
 
     useEffect(() => {
@@ -28,33 +29,45 @@ const LocationDetail = () => {
 
 
     return (
-        <ScrollView style={styles.container}>
-            <View style={styles.card}>
-                <Image
-                    source={{ uri: IMAGE_BASE + location?.image_path }}
-                    style={styles.locationImage}
-                    resizeMode="cover"
-                />
 
-                <Text style={styles.locationTitle}>{location?.name}</Text>
+         <View style={styles.container}>
+                    {isLoading &&
+                        <View style={styles.loadingItem}>
+        
+                            <ActivityIndicator size='large' />
+        
+                        </View>
+                    }
+            {!isLoading &&
+                <ScrollView style={styles.container}>
+                    <View style={styles.card}>
+                        <Image
+                            source={{ uri: IMAGE_BASE + location?.image_path }}
+                            style={styles.locationImage}
+                            resizeMode="cover"
+                        />
 
-                <View style={styles.infoGrid}>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Town:</Text>
-                        <Text style={styles.infoValue}>{location?.town}</Text>
+                        <Text style={styles.locationTitle}>{location?.name}</Text>
+
+                        <View style={styles.infoGrid}>
+                            <View style={styles.infoItem}>
+                                <Text style={styles.infoLabel}>Town:</Text>
+                                <Text style={styles.infoValue}>{location?.town}</Text>
+                            </View>
+                            <View style={styles.infoItem}>
+                                <Text style={styles.infoLabel}>Use:</Text>
+                                <Text style={styles.infoValue}>{location?.use}</Text>
+                            </View>
+                        </View>
+
+                        <View style={styles.detailsContainer}>
+                            <Text style={styles.detailTitle}>Location Details</Text>
+                            <Text style={styles.detailText}>{location?.description}</Text>
+                        </View>
                     </View>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Use:</Text>
-                        <Text style={styles.infoValue}>{location?.use}</Text>
-                    </View>
-                </View>
-
-                <View style={styles.detailsContainer}>
-                    <Text style={styles.detailTitle}>Location Details</Text>
-                    <Text style={styles.detailText}>{location?.description}</Text>
-                </View>
+                </ScrollView>
+            }
             </View>
-        </ScrollView>
     );
 };
 
@@ -66,22 +79,15 @@ const styles = StyleSheet.create({
     card: {
         backgroundColor: '#fff',
         borderRadius: 20,
-        margin: 20,
+        margin:10,
         padding: 20,
         alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 10,
-        },
-        shadowOpacity: 0.3,
-        shadowRadius: 15,
-        elevation: 8,
+      
     },
     locationImage: {
-        width: 200,
-        height: 200,
-        borderRadius: 100,
+        width: '100%',
+        height: 250,
+        borderRadius: 10,
         borderWidth: 5,
         borderColor: '#4CAF50',
         marginBottom: 20,
@@ -143,6 +149,16 @@ const styles = StyleSheet.create({
         color: '#333',
         lineHeight: 20,
         textAlign: 'justify',
+    },
+
+    loadingItem: {
+
+
+        height: '100%',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center'
+
     },
 });
 
