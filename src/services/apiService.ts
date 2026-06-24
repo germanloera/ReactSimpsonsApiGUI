@@ -24,7 +24,7 @@ export const apiService = {
 
     getLocationDetail: async (id: String): Promise<LocationDetail> => {
         
-        const response = await api.get('characters/${id}');
+        const response = await api.get('locations/'+id);
         return response.data
     },
 
