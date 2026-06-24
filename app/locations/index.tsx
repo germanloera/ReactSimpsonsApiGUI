@@ -22,9 +22,8 @@ const LocationDetail = () => {
     const { id } = useLocalSearchParams<SearchParams>()
 
     useEffect(() => {
-        if (!location) {
-            loadLocationDetails(id)
-        }
+
+        loadLocationDetails(id)
     }, [])
 
 

@@ -1,4 +1,7 @@
-import React from 'react';
+import { IMAGE_BASE } from '@/src/constants/urls';
+import { useCharactersVM } from '@/src/viewmodels/CharactersVM';
+import { useLocalSearchParams } from 'expo-router';
+import React, { useEffect } from 'react';
 import {
     View,
     Text,
@@ -7,8 +10,20 @@ import {
     ScrollView
 } from 'react-native';
 
+type CharacterParams = {
+    id: string;
+
+};
 
 export default function CharacterDetail() {
+    const { character, loadCharacterDetail } = useCharactersVM()
+    const { id } = useLocalSearchParams < CharacterParams>()
+
+    useEffect(() => { 
+        loadCharacterDetail(id)
+    }, []);
+
+
     const characterData = {
         id: 1,
         age: 39,
@@ -41,43 +56,43 @@ export default function CharacterDetail() {
         <ScrollView style={styles.container}>
             <View style={styles.card}>
                 <Image
-                    source={{ uri: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png" }}
+                    source={{ uri: IMAGE_BASE + character?.portrait_path }}
                     style={styles.portrait}
                     resizeMode="cover"
                 />
 
-                <Text style={styles.name}>{characterData.name}</Text>
+                <Text style={styles.name}>{character?.name}</Text>
 
                 <View style={styles.quoteContainer}>
                     <Text style={styles.quote}>
-                        "D'oh! I'm a complete and totally acceptable human being."
+                        { character?.phrases[0] }
                     </Text>
                 </View>
 
                 <View style={styles.infoGrid}>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Age:</Text>
-                        <Text style={styles.infoValue}>{characterData.age}</Text>
+                        <Text style={styles.infoValue}>{character?.age}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Gender:</Text>
-                        <Text style={styles.infoValue}>{characterData.gender}</Text>
+                        <Text style={styles.infoValue}>{character?.gender}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Occupation:</Text>
-                        <Text style={styles.infoValue}>{characterData.occupation}</Text>
+                        <Text style={styles.infoValue}>{character?.occupation}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Birthdate:</Text>
-                        <Text style={styles.infoValue}>{characterData.birthdate}</Text>
+                        <Text style={styles.infoValue}>{character?.birthdate}</Text>
                     </View>
                 </View>
 
                 <View style={[
                     styles.status,
-                    characterData.status === 'Alive' ? styles.statusAlive : styles.statusDead
+                    character?.status === 'Alive' ? styles.statusAlive : styles.statusDead
                 ]}>
-                    <Text style={styles.statusText}>Status: {characterData.status}</Text>
+                    <Text style={styles.statusText}>Status: {character?.status}</Text>
                 </View>
 
                 
@@ -88,7 +103,7 @@ export default function CharacterDetail() {
                     
 
                     <View style={styles.phrasesList}>
-                        {characterData.phrases.slice(0, 5).map((phrase, index) => (
+                        {character?.phrases.slice(1).map((phrase, index) => (
                             <Text key={index} style={styles.phraseItem}>{phrase}</Text>
                         ))}
                     </View>
@@ -131,7 +146,7 @@ const styles = StyleSheet.create({
     },
     infoGrid: {
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '1fr 2fr',
         gap: 15,
         width: '100%',
         marginBottom: 25,
@@ -172,6 +187,7 @@ const styles = StyleSheet.create({
     phrasesContainer: {
         width: '100%',
         marginBottom: 20,
+        
     },
     phrasesTitle: {
         color: '#ff6b35',
@@ -181,9 +197,13 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     phrasesList: {
-        alignItems: 'flex-start',
+        alignSelf: 'stretch',
+        alignItems: 'center',
+       
+    
     },
     phraseItem: {
+        alignSelf: 'stretch',
         backgroundColor: '#fff',
         padding: 10,
         borderRadius: 8,
@@ -194,7 +214,7 @@ const styles = StyleSheet.create({
         borderColor: '#ff6b35',
         borderLeftWidth: 4,
         paddingLeft: 12,
-        width: '90%',
+        width: '100%',
     },
     quoteContainer: {
         marginTop: 10,
@@ -203,6 +223,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '100%',
         alignItems: 'center',
+        marginBottom: 15,
     },
     quote: {
         fontStyle: 'italic',

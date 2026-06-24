@@ -1,13 +1,25 @@
-import React from 'react';
+import { IMAGE_BASE } from '@/src/constants/urls';
+import { useEpisodesVM } from '@/src/viewmodels/EpisodesVM';
+import { useLocalSearchParams } from 'expo-router';
+import React, { useEffect } from 'react';
 import {
-    View,
-    Text,
     Image,
+    ScrollView,
     StyleSheet,
-    ScrollView
+    Text,
+    View
 } from 'react-native';
 
+type LocationParams = {
+    id: string;
+
+};
+
 const EpisodeCard = () => {
+
+    const { episode, loadEpisode } = useEpisodesVM()
+    const { id } = useLocalSearchParams<LocationParams>()
+
     const episodeData = {
         id: 1,
         airdate: "1989-12-17",
@@ -18,35 +30,42 @@ const EpisodeCard = () => {
         synopsis: "When Mr. Burns announces that none of the workers will be getting Christmas bonuses and Marge reveals that she spent the extra Christmas gift money on getting Bart's \"Mother\" tattoo removed, Homer keeps his lack of funds for the holidays a secret and gets a job as a mall Santa."
     };
 
+    useEffect(() => {
+        loadEpisode(id)
+
+    }, [])
+
+
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.card}>
                 <Image
-                    source={{ uri: "https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png" }}
+                    source={{ uri: IMAGE_BASE + episode?.image_path }}
                     style={styles.episodeImage}
                     resizeMode="cover"
                 />
 
-                <Text style={styles.episodeTitle}>{episodeData.name}</Text>
+                <Text style={styles.episodeTitle}>{episode?.name}</Text>
 
                 <View style={styles.infoGrid}>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Season:</Text>
-                        <Text style={styles.infoValue}>{episodeData.season}</Text>
+                        <Text style={styles.infoValue}>{episode?.season}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Episode:</Text>
-                        <Text style={styles.infoValue}>{episodeData.episode_number}</Text>
+                        <Text style={styles.infoValue}>{episode?.episode_number}</Text>
                     </View>
                     <View style={styles.infoItem}>
                         <Text style={styles.infoLabel}>Air Date:</Text>
-                        <Text style={styles.infoValue}>{episodeData.airdate}</Text>
+                        <Text style={styles.infoValue}>{episode?.airdate}</Text>
                     </View>
                 </View>
 
                 <View style={styles.synopsisContainer}>
                     <Text style={styles.synopsisTitle}>Synopsis</Text>
-                    <Text style={styles.synopsisText}>{episodeData.synopsis}</Text>
+                    <Text style={styles.synopsisText}>{episode?.synopsis}</Text>
                 </View>
             </View>
         </ScrollView>

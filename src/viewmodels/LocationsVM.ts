@@ -44,13 +44,14 @@ export function useLocationsVM() {
     }
 
     const loadLocationDetails = async (id: string) => {
-        if (isLoading) {
+        if (isLoading || location) {
             return;
         }
+        setIsLoading(true)
         try {
 
             const result = await apiService.getLocationDetail(id);
-            console.log(result)
+
             setLocation(result)
 
         } catch (e) {

@@ -12,7 +12,7 @@ export const apiService = {
     },
 
     getCharacterDetail: async (id: String): Promise<CharacterDetail> => {
-        const response = await api.get('characters/${id}');
+        const response = await api.get('characters/'+id);
         return response.data
     },
 
@@ -35,7 +35,7 @@ export const apiService = {
     },
 
     getEpisodeDetail: async (id: String): Promise<EpisodeDetail> => {
-        const response = await api.get('characters/${id}');
+        const response = await api.get('episodes/'+id);
         return response.data
     }
 

@@ -17,7 +17,10 @@ export default function CharacterCard({ character }: CharacterProps) {
     const router = useRouter();
     return (
 
-        <Pressable onPress={() => router.navigate('/characters')} >
+        <Pressable onPress={() => router.push({
+            pathname: '/characters',
+            params: { id: character.id }
+        })} >
             <View style={homeAdviceStyle.container} >
                 <View style={homeAdviceStyle.imageContainer}>
 
