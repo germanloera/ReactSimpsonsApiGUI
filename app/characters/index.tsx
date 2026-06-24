@@ -7,6 +7,7 @@ import {
     ScrollView
 } from 'react-native';
 
+
 export default function CharacterDetail() {
     const characterData = {
         id: 1,
