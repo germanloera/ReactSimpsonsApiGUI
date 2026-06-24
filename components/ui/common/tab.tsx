@@ -35,7 +35,7 @@ export default function SimpsonTab({ state, descriptors, navigation }: BottomTab
 
 
                 return (
-                    <View style={tabStyle.bg}>
+                    <View key={index} style={tabStyle.bg}>
                         <View style={tabStyle.topSeparator}></View>
                         <TouchableOpacity
                             key={route.key}

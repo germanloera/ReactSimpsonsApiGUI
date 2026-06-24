@@ -12,7 +12,6 @@ export default function HomeScreen() {
     <View style={styles.container}>
       
       <SimpsonHeader />
-      
       <HomeInfoPill />
       <HomeInfoSmallPills />
       <HomeInfoAdvice />
