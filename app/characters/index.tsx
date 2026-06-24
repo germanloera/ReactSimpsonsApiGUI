@@ -3,11 +3,11 @@ import { useCharactersVM } from '@/src/viewmodels/CharactersVM';
 import { useLocalSearchParams } from 'expo-router';
 import React, { useEffect } from 'react';
 import {
-    View,
-    Text,
     Image,
+    ScrollView,
     StyleSheet,
-    ScrollView
+    Text,
+    View
 } from 'react-native';
 
 type CharacterParams = {
@@ -17,9 +17,9 @@ type CharacterParams = {
 
 export default function CharacterDetail() {
     const { character, loadCharacterDetail } = useCharactersVM()
-    const { id } = useLocalSearchParams < CharacterParams>()
+    const { id } = useLocalSearchParams<CharacterParams>()
 
-    useEffect(() => { 
+    useEffect(() => {
         loadCharacterDetail(id)
     }, []);
 
@@ -65,26 +65,30 @@ export default function CharacterDetail() {
 
                 <View style={styles.quoteContainer}>
                     <Text style={styles.quote}>
-                        { character?.phrases[0] }
+                        {character?.phrases[0]}
                     </Text>
                 </View>
 
                 <View style={styles.infoGrid}>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Age:</Text>
-                        <Text style={styles.infoValue}>{character?.age}</Text>
+                    <View style={styles.infoContainer}>
+                        <View style={styles.infoItem}>
+                            <Text style={styles.infoLabel}>Age:</Text>
+                            <Text style={styles.infoValue}>{character?.age}</Text>
+                        </View>
+                        <View style={styles.infoItem}>
+                            <Text style={styles.infoLabel}>Gender:</Text>
+                            <Text style={styles.infoValue}>{character?.gender}</Text>
+                        </View>
                     </View>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Gender:</Text>
-                        <Text style={styles.infoValue}>{character?.gender}</Text>
-                    </View>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Occupation:</Text>
-                        <Text style={styles.infoValue}>{character?.occupation}</Text>
-                    </View>
-                    <View style={styles.infoItem}>
-                        <Text style={styles.infoLabel}>Birthdate:</Text>
-                        <Text style={styles.infoValue}>{character?.birthdate}</Text>
+                    <View style={styles.infoContainer}>
+                        <View style={styles.infoItem}>
+                            <Text style={styles.infoLabel}>Occupation:</Text>
+                            <Text style={styles.infoValue}>{character?.occupation}</Text>
+                        </View>
+                        <View style={styles.infoItem}>
+                            <Text style={styles.infoLabel}>Birthdate:</Text>
+                            <Text style={styles.infoValue}>{character?.birthdate}</Text>
+                        </View>
                     </View>
                 </View>
 
@@ -95,12 +99,12 @@ export default function CharacterDetail() {
                     <Text style={styles.statusText}>Status: {character?.status}</Text>
                 </View>
 
-                
+
 
                 <View style={styles.phrasesContainer}>
                     <Text style={styles.phrasesTitle}>Famous Phrases</Text>
 
-                    
+
 
                     <View style={styles.phrasesList}>
                         {character?.phrases.slice(1).map((phrase, index) => (
@@ -109,7 +113,7 @@ export default function CharacterDetail() {
                     </View>
                 </View>
 
-                
+
             </View>
         </ScrollView>
     );
@@ -144,6 +148,7 @@ const styles = StyleSheet.create({
         textShadowOffset: { width: 2, height: 2 },
         textShadowRadius: 4,
     },
+
     infoGrid: {
         display: 'grid',
         gridTemplateColumns: '1fr 2fr',
@@ -151,11 +156,17 @@ const styles = StyleSheet.create({
         width: '100%',
         marginBottom: 25,
     },
+    infoContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
     infoItem: {
+        width: '48%',
         backgroundColor: '#ffebee',
         padding: 12,
         borderRadius: 10,
         alignItems: 'center',
+
     },
     infoLabel: {
         fontWeight: 'bold',
@@ -187,7 +198,7 @@ const styles = StyleSheet.create({
     phrasesContainer: {
         width: '100%',
         marginBottom: 20,
-        
+
     },
     phrasesTitle: {
         color: '#ff6b35',
@@ -199,8 +210,8 @@ const styles = StyleSheet.create({
     phrasesList: {
         alignSelf: 'stretch',
         alignItems: 'center',
-       
-    
+
+
     },
     phraseItem: {
         alignSelf: 'stretch',
