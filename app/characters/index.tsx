@@ -47,31 +47,33 @@ export default function CharacterDetail() {
 
                     <Text style={styles.name}>{character?.name}</Text>
 
-                    <View style={styles.quoteContainer}>
+                    {character?.phrases && character?.phrases.length > 0 && <View style={styles.quoteContainer}>
                         <Text style={styles.quote}>
                             {character?.phrases[0]}
                         </Text>
                     </View>
+                    }
+
 
                     <View style={styles.infoGrid}>
                         <View style={styles.infoContainer}>
                             <View style={styles.infoItem}>
                                 <Text style={styles.infoLabel}>Age:</Text>
-                                <Text style={styles.infoValue}>{character?.age}</Text>
+                                <Text style={styles.infoValue}>{character?.age ?? 'Unknown'}</Text>
                             </View>
                             <View style={styles.infoItem}>
                                 <Text style={styles.infoLabel}>Gender:</Text>
-                                <Text style={styles.infoValue}>{character?.gender}</Text>
+                                <Text style={styles.infoValue}>{character?.gender ?? 'Unknown'}</Text>
                             </View>
                         </View>
                         <View style={styles.infoContainer}>
                             <View style={styles.infoItem}>
                                 <Text style={styles.infoLabel}>Occupation:</Text>
-                                <Text style={styles.infoValue}>{character?.occupation}</Text>
+                                <Text style={styles.infoValue}>{character?.occupation ?? 'Unknown'}</Text>
                             </View>
                             <View style={styles.infoItem}>
                                 <Text style={styles.infoLabel}>Birthdate:</Text>
-                                <Text style={styles.infoValue}>{character?.birthdate}</Text>
+                                <Text style={styles.infoValue}>{character?.birthdate ?? 'Unknown'}</Text>
                             </View>
                         </View>
                     </View>
@@ -84,18 +86,19 @@ export default function CharacterDetail() {
                     </View>
 
 
+                    {character?.phrases && character?.phrases.length > 1 &&
+                        <View style={styles.phrasesContainer}>
+                            <Text style={styles.phrasesTitle}>Famous Phrases</Text>
 
-                    <View style={styles.phrasesContainer}>
-                        <Text style={styles.phrasesTitle}>Famous Phrases</Text>
 
 
-
-                        <View style={styles.phrasesList}>
-                            {character?.phrases.slice(1).map((phrase, index) => (
-                                <Text key={index} style={styles.phraseItem}>{phrase}</Text>
-                            ))}
+                            <View style={styles.phrasesList}>
+                                {character?.phrases.slice(1).map((phrase, index) => (
+                                    <Text key={index} style={styles.phraseItem}>{phrase}</Text>
+                                ))}
+                            </View>
                         </View>
-                    </View>
+                    }
 
 
                 </View>

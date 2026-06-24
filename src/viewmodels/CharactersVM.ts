@@ -50,7 +50,7 @@ export function useCharactersVM() {
         setIsLoading(true);
         try {
             const result = await apiService.getCharacterDetail(id);
-
+console.log(result)
             setCharacter(result)
 
         } catch (e) {
