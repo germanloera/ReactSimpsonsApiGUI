@@ -125,8 +125,8 @@ MIT
 
 ### Characters
 
-<img src="./screenshots/character_ios.png" alt="" style="width:30%; height:auto;">
-<img src="./screenshots/character_android.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/character_ios.png" alt="" style="width:40%; height:auto;">
+<img src="./screenshots/character_android.png" alt="" style="width:40%; height:auto;">
 
 ### Characters detail
 <img src="./screenshots/char_detail_ios.png" alt="" style="width:30%; height:auto;">
