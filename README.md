@@ -21,7 +21,8 @@ A portfolio-ready sample app built with **React Native + Expo** that delivers a 
 
 ### Home
 
-![Home Screenshot](./screenshots/home.png)
+![Home iOS](./screenshots/home_ios.png)
+![Home Android](./screenshots/home_android.png)
 
 ### Characters
 
