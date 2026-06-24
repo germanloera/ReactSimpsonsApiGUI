@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View,TextInput, TouchableOpacity } from "react-native";
 
+interface SearchProps{ 
+action: (query: string) => void
+}
 
 
-export default function SearchBox() {
+export default function SearchBox({ action }: SearchProps) {
+
+const [query, setQuery] = useState<string>("")
+
 
     return (
         <View style={searchStyle.container}>
-            <TextInput style={searchStyle.input} placeholder="Search characters" />
+            <TextInput style={searchStyle.input} placeholder="Search characters" onChangeText={ text => setQuery(text)} />
 
-            <TouchableOpacity style={searchStyle.touchable} >
+            <TouchableOpacity style={searchStyle.touchable}  onPress={() => action(query)}>
                 <Text>🔍 Search</Text>
 
             </TouchableOpacity>

@@ -10,6 +10,9 @@ export function useLocationsVM() {
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const [next, setNext] = useState<string | null>(null)
+    
+    const [filtered, setFiltered] = useState<Location[]>([]);
+    const [query, setQuery] = useState<string>('')
 
 
 
@@ -53,6 +56,7 @@ export function useLocationsVM() {
             const result = await apiService.getLocationDetail(id);
 
             setLocation(result)
+            filter()
 
         } catch (e) {
             console.log(e)
@@ -62,6 +66,15 @@ export function useLocationsVM() {
 
 
     }
+
+    const filter = () => {
+
+        const f = locations.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+        setFiltered(f)
+
+    }
+
+
 
 
 
@@ -73,7 +86,11 @@ export function useLocationsVM() {
         page,
         isLoading,
         location,
+        filtered, 
+        query,
         loadLocations,
-        loadLocationDetails
+        loadLocationDetails,
+        filter,
+        setQuery
     }
 }

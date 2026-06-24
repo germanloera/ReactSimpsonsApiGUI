@@ -9,6 +9,9 @@ export function useCharactersVM() {
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const [next, setNext] = useState<string | null>(null)
+    
+    const [filtered, setFiltered] = useState<Character[]>([]);
+    const [query, setQuery] = useState<string>('')
 
 
 
@@ -24,11 +27,14 @@ export function useCharactersVM() {
 
             characters.some(c => c.id)
 
+
             setCharacters(prev => {
                 const existingIds = new Set(prev.map(c => c.id));
                 const newItems = items.filter(c => !existingIds.has(c.id));
                 return [...prev, ...newItems];
             });
+
+            filter()
 
             setNext(result.next)
 
@@ -60,6 +66,12 @@ export function useCharactersVM() {
 
     }
 
+    const filter = () => {
+
+        const f = characters.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+        setFiltered(f)
+
+    }
 
 
 
@@ -70,7 +82,11 @@ export function useCharactersVM() {
         page,
         isLoading,
         character,
+        filtered,
+        query,
         loadCharacters,
-        loadCharacterDetail
+        loadCharacterDetail,
+        filter,
+        setQuery
     }
 }

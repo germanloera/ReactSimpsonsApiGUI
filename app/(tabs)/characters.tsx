@@ -8,8 +8,12 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 
 
 export default function CharactersScreen() {
-  const { characters, page, isLoading, loadCharacters } = useCharactersVM()
+  const { characters, page, isLoading, filtered, query, loadCharacters, filter, setQuery } = useCharactersVM()
   const insets = useSafeAreaInsets();
+
+  useEffect(() => { 
+  filter()
+  },[query])
 
 
   return (
@@ -17,16 +21,16 @@ export default function CharactersScreen() {
       <View>
         <StatusBar barStyle='dark-content' />
 
-        <SearchBox />
+        <SearchBox action={query => setQuery(query)} />
 
 
         <FlatList
-          data={characters}
+          data={filtered}
           renderItem={({ item }) => <CharacterCard character={item} />}
           keyExtractor={item => item.id}
           contentContainerStyle={{
             // Combines system spacing requirements with standard padding
-            paddingBottom: insets.bottom + 80
+            paddingBottom: insets.bottom + 8
           }}
 
         

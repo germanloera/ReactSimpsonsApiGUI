@@ -5,22 +5,26 @@ import CardEpisode from '@/components/ui/ep/episodeCard';
 import { useEpisodesVM } from '@/src/viewmodels/EpisodesVM';
 import { StyleSheet, View, FlatList, ActivityIndicator} from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useEffect } from 'react';
 
 
 export default function EpisodesScreen() {
 
-  const { episodes, page, isLoading, loadEpisodes } = useEpisodesVM()
+  const { episodes, page, isLoading, filtered, query, filter, loadEpisodes, setQuery } = useEpisodesVM()
   const insets = useSafeAreaInsets();
   
+   useEffect(() => { 
+      filter()
+      },[query])
   
   return (
     <SafeAreaView>
       <View>
 
-        <SearchBox />
+        <SearchBox action={query => setQuery(query)} />
 
      <FlatList
-          data={episodes}
+          data={filtered}
           renderItem={({ item }) => <CardEpisode ep={item} />}
           keyExtractor={item => item.id}
           contentContainerStyle={{

@@ -10,6 +10,8 @@ export function useEpisodesVM() {
     const [page, setPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
     const [next, setNext] = useState<string | null>(null)
+    const [filtered, setFiltered] = useState<Episode[]>([]);
+    const [query, setQuery] = useState<string>('')
 
 
 
@@ -57,6 +59,7 @@ export function useEpisodesVM() {
 
             const result = await apiService.getEpisodeDetail(id);
             setEpisode(result)
+            filter()
             
         } catch (e) {
             console.log(e)
@@ -67,7 +70,14 @@ export function useEpisodesVM() {
     }
 
 
+  
 
+    const filter = () => {
+
+        const f = episodes.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+        setFiltered(f)
+
+    }
 
 
 
@@ -78,7 +88,11 @@ export function useEpisodesVM() {
         page,
         isLoading,
         episode,
+        filtered, 
+        query,
         loadEpisodes,
-        loadEpisode
+        loadEpisode,
+        filter,
+        setQuery
     }
 }

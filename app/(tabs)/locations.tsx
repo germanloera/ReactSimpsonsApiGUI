@@ -1,23 +1,28 @@
 import SearchBox from '@/components/ui/common/searchBox';
 import CardEpisode from '@/components/ui/ep/episodeCard';
 import { useLocationsVM } from '@/src/viewmodels/LocationsVM';
+import { useEffect } from 'react';
 import { StyleSheet, View, FlatList, ActivityIndicator } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export default function LocationsScreen() {
 
-  const { locations, page, isLoading, loadLocations } = useLocationsVM()
+  const { locations, page, isLoading, filtered, query, filter, loadLocations, setQuery } = useLocationsVM()
   const insets = useSafeAreaInsets();
+
+  useEffect(() => { 
+    filter()
+    },[query])
 
     return (
           <SafeAreaView>
             <View>
       
-              <SearchBox />
+          <SearchBox action={query => setQuery(query)} />
       
            <FlatList
-                data={locations}
+                data={filtered}
                 renderItem={({ item }) => <CardEpisode loc={item} />}
                 keyExtractor={item => item.id}
                 contentContainerStyle={{
