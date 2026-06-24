@@ -16,26 +16,6 @@ A portfolio-ready sample app built with **React Native + Expo** that delivers a 
 - Lightweight MVVM-style organization
 - Runs on Android, iOS, and Web
 
-## Demo Screens
-
-
-### Home
-
-![Home iOS](./screenshots/home_ios.png)
-![Home Android](./screenshots/home_android.png)
-
-### Characters
-
-![Characters Screenshot](./screenshots/characters.png)
-
-### Episodes
-
-![Episodes Screenshot](./screenshots/episodes.png)
-
-### Locations
-
-![Locations Screenshot](./screenshots/locations.png)
-
 ## Architecture
 
 The project is structured in a clear UI → ViewModel → Service flow.
@@ -133,3 +113,39 @@ German Loera
 ## License
 
 MIT
+
+## Screenshots
+
+
+### Home
+
+<img src="./screenshots/home_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/home_android.png" alt="" style="width:30%; height:auto;">
+
+### Characters
+
+<img src="./screenshots/character_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/character_android.png" alt="" style="width:30%; height:auto;">
+
+### Characters detail
+<img src="./screenshots/char_detail_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/char_detail_android.png" alt="" style="width:30%; height:auto;">
+
+### Episodes
+<img src="./screenshots/episodes_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/episodes_android.png" alt="" style="width:30%; height:auto;">
+
+### Episodes Detail
+<img src="./screenshots/ep_detail_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/ep_detail_android.png" alt="" style="width:30%; height:auto;">
+
+
+### Locations
+
+<img src="./screenshots/loc_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/locations_android.png" alt="Home iOS" style="width:30%; height:auto;">
+
+### Locations Detail
+
+<img src="./screenshots/loc_det_ios.png" alt="" style="width:30%; height:auto;">
+<img src="./screenshots/loc_det_android.png" alt="" style="width:30%; height:auto;">
