@@ -1,6 +1,6 @@
 import { IMAGE_BASE } from '@/src/constants/urls';
 import { useEpisodesVM } from '@/src/viewmodels/EpisodesVM';
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import React, { useEffect } from 'react';
 import {
     ActivityIndicator,
@@ -31,6 +31,7 @@ const EpisodeCard = () => {
 
     return (
         <View style={styles.container}>
+            <Stack.Screen options={{ title: '' , headerBackTitle: '',  headerTintColor: '#000', headerStyle: { backgroundColor: '#fcf1c5'} }} />
             {isLoading &&
                 <View style={styles.loadingItem}>
 
@@ -77,10 +78,10 @@ const EpisodeCard = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
     },
     card: {
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
         borderRadius: 20,
         margin: 10,
         padding: 20,

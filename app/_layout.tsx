@@ -15,8 +15,12 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={ SimpsonTheme }>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack
+        screenOptions={{
+          title : ''
+        }}
+      >
+        <Stack.Screen name="(tabs)" options={{ headerShown: false}} />
         <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
       </Stack>
       <StatusBar style='dark' />

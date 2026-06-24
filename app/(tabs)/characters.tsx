@@ -15,7 +15,7 @@ export default function CharactersScreen() {
   return (
     <SafeAreaView>
       <View>
-        <StatusBar barStyle='default' />
+        <StatusBar barStyle='dark-content' />
 
         <SearchBox />
 

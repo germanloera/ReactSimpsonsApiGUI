@@ -1,6 +1,6 @@
 import { IMAGE_BASE } from '@/src/constants/urls';
 import { useCharactersVM } from '@/src/viewmodels/CharactersVM';
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import React, { useEffect } from 'react';
 import {
     ActivityIndicator,
@@ -28,6 +28,8 @@ export default function CharacterDetail() {
     return (
 
         <View style={styles.container}>
+            <Stack.Screen options={{ title: '', headerBackTitle: '', headerTintColor: '#000', headerStyle: { backgroundColor: '#fcf1c5' } }} />
+
             {isLoading &&
                 <View style={styles.loadingItem}>
 
@@ -114,10 +116,10 @@ export default function CharacterDetail() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
     },
     card: {
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
         padding: 20,
         alignItems: 'center',
     },
@@ -158,6 +160,8 @@ const styles = StyleSheet.create({
         padding: 12,
         borderRadius: 10,
         alignItems: 'center',
+        borderColor: '#ff6b35',
+        borderWidth: 1
 
     },
     infoLabel: {
@@ -165,6 +169,7 @@ const styles = StyleSheet.create({
         color: '#ff6b35',
         fontSize: 14,
         marginBottom: 5,
+        
     },
     infoValue: {
         fontSize: 14,
@@ -190,6 +195,7 @@ const styles = StyleSheet.create({
     phrasesContainer: {
         width: '100%',
         marginBottom: 20,
+       
 
     },
     phrasesTitle: {
@@ -218,6 +224,7 @@ const styles = StyleSheet.create({
         borderLeftWidth: 4,
         paddingLeft: 12,
         width: '100%',
+       
     },
     quoteContainer: {
         marginTop: 10,
@@ -227,6 +234,8 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         marginBottom: 15,
+        borderColor: '#ff6b35',
+        borderWidth: 1
     },
     quote: {
         fontStyle: 'italic',

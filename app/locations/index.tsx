@@ -1,6 +1,6 @@
 import { IMAGE_BASE } from '@/src/constants/urls';
 import { useLocationsVM } from '@/src/viewmodels/LocationsVM';
-import { useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import React, { useEffect } from 'react';
 import {
     Image,
@@ -30,7 +30,9 @@ const LocationDetail = () => {
 
     return (
 
-         <View style={styles.container}>
+        <View style={styles.container}>
+            <Stack.Screen options={{ title: '', headerBackTitle: '', headerTintColor: '#000', headerStyle: { backgroundColor: '#fcf1c5' } }} />
+
                     {isLoading &&
                         <View style={styles.loadingItem}>
         
@@ -74,10 +76,10 @@ const LocationDetail = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
     },
     card: {
-        backgroundColor: '#fff',
+        backgroundColor: '#fef9cd',
         borderRadius: 20,
         margin:10,
         padding: 20,
