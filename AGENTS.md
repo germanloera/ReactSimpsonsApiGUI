@@ -57,7 +57,6 @@ This is a React application (likely using Vite) for the Simpsons API GUI, featur
 
 ### Main Application
 - `src/(tabs)/index.tsx` - Primary entry point for React application
-- `index.html` - Base HTML template in public directory
 
 ## Deployment
 
