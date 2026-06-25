@@ -35,6 +35,8 @@ export function useEpisodesVM() {
                 return [...prev, ...newItems];
             });
 
+            filter()
+
             setNext(result.next)
 
 

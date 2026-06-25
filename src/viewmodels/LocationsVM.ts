@@ -35,6 +35,7 @@ export function useLocationsVM() {
                 return [...prev, ...newItems];
             });
 
+            filter()
             setNext(result.next)
 
         } catch (e) {
